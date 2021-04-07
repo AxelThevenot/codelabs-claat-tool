@@ -40,26 +40,23 @@ the License.
       bottom: 0;
       right: 0;
       left: 0;
-      background: rgba(0, 0, 0, .8);
+
+      padding: 1%;
+      background-color: rgba(0, 0, 0, .8);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-origin: content-box;
+
       z-index: 1001;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor:pointer;
-    }
-    .enlarged-image img {
-      max-width: 90% !important;
-      max-height: 90% !important;
-      width: max-content !important;
-      height: max-content !important;
-      pointer-events: none !important;
+      cursor: pointer;
     }
   </style>
   <script>
     function enlarge(obj) {
-      var image = obj.cloneNode()
+      var image = obj.src
       var container = document.createElement('div')
-      container.appendChild(image)
+      container.style.backgroundImage = "url('" + image + "')"
       container.classList.add('enlarged-image')
       container.onclick = () => closeEnlarged(container)
       document.body.append(container)
